@@ -36,7 +36,7 @@ public class LoginSteps implements En {
         });
 
         Then("screen sucess appear", () -> {
-            Assert.assertFalse(loginPage.test());
+            Assert.assertTrue(loginPage.test());
         });
 
    }

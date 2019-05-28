@@ -1,11 +1,6 @@
 pipeline{
     agent any
-    parameters{
-            choice(
-                        choices: ['todos', 'login', 'upload'],
-                    description: 'Escolha qual teste deseja executar.',
-                    name: 'TAG')
-    }
+    properties([parameters([choice(choices: ['todos', 'login', 'upload'], description: '', name: 'TAG')])])
     stages{
         stage ('Compile'){
             steps{

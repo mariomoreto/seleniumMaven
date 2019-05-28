@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                    git 'https://github.com/mariomoreto/seleniumMaven.git/'
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mariomoreto/seleniumMaven.git/']]])
                 }
         }
 

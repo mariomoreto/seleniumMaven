@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    properties([parameters([choice(choices: ['todos', 'login', 'upload'], description: '', name: 'TAG')])])
+    options([parameters([choice(choices: ['todos', 'login', 'upload'], description: '', name: 'TAG')])])
     stages{
         stage ('Compile'){
             steps{

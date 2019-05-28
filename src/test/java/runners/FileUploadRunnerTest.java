@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "features/fileUpload.feature",
         glue = "steps",
-        plugin = {"json:target/cucumber.json"}
+        plugin = {"json:target/fileUpload.json"}
 )
 public class FileUploadRunnerTest {
 }

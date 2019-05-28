@@ -2,7 +2,7 @@ pipeline{
     agent any
     parameters{
             choice(
-                    choices: ['todos', 'login', 'upload'],
+                        choices: ['todos', 'login', 'upload'],
                     description: 'Escolha qual teste deseja executar.',
                     name: 'TAG')
     }
@@ -24,7 +24,7 @@ pipeline{
                                      {
                                         bat 'mvn test'
                                      }else{
-                                        bat 'mvn test -Dcucumber.options='--tags params.TAG''
+                                        bat 'mvn test -Dcucumber.options='--tags ${params.TAG}''
                                      }
                                  }
 

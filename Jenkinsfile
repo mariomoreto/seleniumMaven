@@ -11,6 +11,7 @@ pipeline{
 
          stage ('Test'){
                     steps{
+                     script {
                         try{
                             withMaven(maven:'MAVEN_HOME'){
                             bat 'mvn test'
@@ -24,7 +25,8 @@ pipeline{
                                          }
                              }
                         }
-                    }
+                       }
+            }
          }
 
 

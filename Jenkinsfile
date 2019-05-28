@@ -14,7 +14,7 @@ pipeline{
                             withMaven(maven:'MAVEN_HOME'){
                             bat 'mvn test'
                            }
-                           currentBuild.result = 'SUCCESS'
+                            build.setResult = 'SUCCESS'
                        }
          }
 

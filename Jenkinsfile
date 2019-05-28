@@ -9,16 +9,20 @@ pipeline{
             }
         }
 
-       try{
-         stage ('Test'){
+        stage ('Test'){
                     steps{
-                            withMaven(maven:'MAVEN_HOME'){
-                            bat 'mvn test'
-                           }
-                            build.setResult = 'SUCCESS'
-                       }
-         }
-        }catch (Exception e) {
+                        script{
+                            try{
+                                 withMaven(maven:'MAVEN_HOME'){
+                                   bat 'mvn test'
+                                 }
+
+                            } catch (err) {
+                                echo err
+                             }
+                         }
+                         echo currentBuild.result
+                    }
         }
 
           stage ('Cucumber Reports'){

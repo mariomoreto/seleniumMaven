@@ -8,9 +8,10 @@ public abstract class DriverManager {
 
     public void quitWebDriver(){
         if(driver!=null){
-            driver.quit();
-            driver = null;
+            return;
         }
+        driver.quit();
+        driver = null;
     }
 
     public WebDriver getWebDriver(){

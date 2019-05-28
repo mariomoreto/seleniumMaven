@@ -7,6 +7,10 @@ pipeline{
                     name: 'TAG')
     }
     stages{
+        stage('Checkout'){
+            git url:'https://github.com/mariomoreto/seleniumMaven.git/'
+        }
+
         stage ('Compile'){
             steps{
                 withMaven(maven:'MAVEN_HOME'){

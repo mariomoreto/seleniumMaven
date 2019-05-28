@@ -24,7 +24,7 @@ pipeline{
                                      {
                                         bat 'mvn test'
                                      }else{
-                                        bat 'mvn test -Dcucumber.options='--tags params.TAG'
+                                        bat 'mvn test -Dcucumber.options='--tags params.TAG''
                                      }
                                  }
 

@@ -1,5 +1,11 @@
 pipeline{
     agent any
+    parameters{
+            choice(
+                    choices: ['todos', 'login', 'upload'],
+                    description: 'Escolha qual teste deseja executar.',
+                    name: 'TAG')
+    }
     stages{
         stage ('Compile'){
             steps{
@@ -14,7 +20,12 @@ pipeline{
                         script{
                             try{
                                  withMaven(maven:'MAVEN_HOME'){
-                                   bat 'mvn test'
+                                     if(params.TAG=='todos')
+                                     {
+                                        bat 'mvn test'
+                                     }else{
+                                        bat 'mvn test -Dcucumber.options='--tags "@${params.TAG}"'
+                                     }
                                  }
 
                             } catch (err) {

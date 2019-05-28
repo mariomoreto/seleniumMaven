@@ -11,18 +11,22 @@ pipeline{
 
          stage ('Test'){
                     steps{
-                        withMaven(maven:'MAVEN_HOME'){
+                        try{
+                            withMaven(maven:'MAVEN_HOME'){
                             bat 'mvn test'
+                           }
+                        }finally{
+                             stage ('Cucumber Reports'){
+                                         steps{
+                                             cucumber buildStatus: "UNSTABLE",
+                                             fileIncludePattern:"**/cucumber.json",
+                                             jsonReportDirectory: 'target'
+                                         }
+                             }
                         }
                     }
          }
 
-         stage ('Cucumber Reports'){
-            steps{
-                cucumber buildStatus: "UNSTABLE",
-                fileIncludePattern:"**/cucumber.json",
-                jsonReportDirectory: 'target'
-            }
-         }
+
     }
 }

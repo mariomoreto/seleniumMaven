@@ -8,7 +8,9 @@ pipeline{
     }
     stages{
         stage('Checkout'){
-            git url:'https://github.com/mariomoreto/seleniumMaven.git/'
+            steps{
+                    git 'https://github.com/mariomoreto/seleniumMaven.git/'
+                }
         }
 
         stage ('Compile'){

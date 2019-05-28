@@ -7,12 +7,6 @@ pipeline{
                     name: 'TAG')
     }
     stages{
-        stage('Checkout'){
-            steps{
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mariomoreto/seleniumMaven.git/']]])
-                }
-        }
-
         stage ('Compile'){
             steps{
                 withMaven(maven:'MAVEN_HOME'){

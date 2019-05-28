@@ -6,9 +6,10 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "features",
+@CucumberOptions(
+        features = "features",
         glue = "steps",
-        plugin = { "pretty", "html:target/cucumber-reports" }
+        plugin = {"json:target/cucumber.json"}
     )
 public class LoginRunnerTest {
 }

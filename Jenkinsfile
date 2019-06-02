@@ -8,11 +8,6 @@ pipeline{
         )
     }
     stages{
-        stage ('Checkout'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/R0-TestJenkins']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mariomoreto/seleniumMaven.git']]])
-            }
-        }
         stage ('Compile'){
             steps{
                 withMaven(maven:'MAVEN_HOME'){

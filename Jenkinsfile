@@ -2,6 +2,9 @@ pipeline{
     agent any
     parameters{choice(choices: ['todos', 'login', 'upload'], description: '', name: 'TAG')}
     stages{
+        stage ('Checkout'){
+            checkout([$class: 'GitSCM', branches: [[name: '*/R0-TestJenkins']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mariomoreto/seleniumMaven.git']]])
+        }
         stage ('Compile'){
             steps{
                 withMaven(maven:'MAVEN_HOME'){

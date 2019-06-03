@@ -49,7 +49,7 @@ public class FileUploadSteps implements En {
 
         Then("screen upload sucess appear", () -> {
             Assert.assertEquals("File Uploaded!", fileUploadedPage.getTextSucess());
-            Assert.assertEquals("teste.txt", fileUploadedPage.getFileUploaded());
+            Assert.assertEquals("teste2.txt", fileUploadedPage.getFileUploaded());
         });
     }
 

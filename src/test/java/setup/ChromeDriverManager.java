@@ -7,8 +7,9 @@ public class ChromeDriverManager extends DriverManager {
 
     @Override
     protected void createWebDriver() {
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Mario\\Desktop\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/home/mario/Documents/chromedriver");
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
         this.driver = new ChromeDriver(options);
     }
 }
